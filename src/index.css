@@ -1,3 +1,46 @@
 body {
   font-size: 18px;
 }
+
+.drum-pad {
+  width: 100px;
+  height: 80px;
+  margin-right: 10px;
+  box-shadow: rgba(0,0,0, 0.25) 2px 2px 4px;
+}
+
+.pad-bank .row {
+  margin-bottom: 10px;
+}
+
+#drum-machine {
+  width: 100%;
+  margin-top: 100px;
+  border: 3px black solid;
+  border-radius: 4px;
+}
+
+#drum-machine .row {
+  justify-content: center;
+}
+
+#sound-name {
+  width: 250px;
+  height: 50px;
+  background-color: grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media(min-width: 1024px) {
+  #drum-machine {
+    width: 70%;
+  }
+}
+
+@media(min-width: 1400px) {
+  #drum-machine {
+    width: 50%;
+  }
+}

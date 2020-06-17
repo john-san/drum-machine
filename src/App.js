@@ -1,27 +1,58 @@
 import React from 'react';
-import { Container, Row, Col  } from 'react-bootstrap';
+import { Container, Row, Col, Button, Form  } from 'react-bootstrap';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Drum Machine</h1>
-      <Container>
-        <Row>
-          <Col xs={12} sm={6}>
-            <Row>Q W E</Row>
-            <Row>A S D</Row>
-            <Row>Z X C</Row>
-          </Col>
-          <Col xs={12} sm={6}>
-            <Row>Power Toggle</Row>
-            <Row>Sound Name</Row>
-            <Row>Sound Dial</Row>
-            <Row>Bank Toggle</Row>
-          </Col>
-        </Row>
-      </Container>
-    </div>
+    <Container id="drum-machine">
+      <h1 className="text-center">Drum Machine</h1>
+      <Row>
+        <Col xs={{span: 12}} md={{span: 6}} className="pad-bank">
+          <Row>
+            <Button variant="outline-secondary" className="drum-pad">Q</Button> 
+            <Button variant="outline-secondary" className="drum-pad">W</Button>
+            <Button variant="outline-secondary" className="drum-pad">E</Button>
+          </Row>
+          <Row>
+            <Button variant="outline-secondary" className="drum-pad">A</Button> 
+            <Button variant="outline-secondary" className="drum-pad">S</Button>
+            <Button variant="outline-secondary" className="drum-pad">D</Button>
+          </Row>
+          <Row>
+            <Button variant="outline-secondary" className="drum-pad">Z</Button> 
+            <Button variant="outline-secondary" className="drum-pad">X</Button>
+            <Button variant="outline-secondary" className="drum-pad">C</Button>
+          </Row>
+        </Col>
+        <Col xs={{span: 12}} md={{span: 6}} className="controls-container">
+          <Row>
+            <Form.Check 
+              type="switch"
+              id="power-switch"
+              label="Power"
+            />
+          </Row>
+          <Row>
+            <div id="sound-name">
+              <span>Sound Name</span>
+            </div>
+          </Row>
+          <Row>
+            <Form.Group controlId="formBasicRangeCustom">
+              <Form.Label>Volume</Form.Label>
+              <Form.Control type="range" custom />
+            </Form.Group>
+          </Row>
+          <Row>
+            <Form.Check 
+              type="switch"
+              id="bank-switch"
+              label="Bank"
+            />
+          </Row>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
