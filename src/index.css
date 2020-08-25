@@ -35,12 +35,18 @@ body {
 
 @media(min-width: 1024px) {
   #drum-machine {
-    width: 70%;
+    width: 60%;
   }
 }
 
 @media(min-width: 1400px) {
   #drum-machine {
     width: 50%;
+  }
+}
+
+@media(min-width: 1600px) {
+  #drum-machine {
+    width: 40%;
   }
 }
