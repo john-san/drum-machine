@@ -5,15 +5,18 @@ import DrumMachineContext from '../DrumMachineContext';
 export default function DrumButton(props) {
   return (
     <DrumMachineContext.Consumer>
-      {({updateSoundName}) => (
+      {({ power, updateSoundName }) => (
         <Button
           variant="outline-secondary"
           className="drum-pad"  
           id={props.sound}
           onClick={() => {
-            updateSoundName(props.sound);
-            props.playAudio(props.url);
+            if (power) { // only play if power is on
+              updateSoundName(props.sound);
+              props.playAudio(props.url);
+            }
           }}
+          // onKeyDown={(e) => console.log(e)}
         >
           { props.letter }
         </Button>

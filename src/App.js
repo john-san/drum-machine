@@ -12,6 +12,7 @@ class App extends Component {
       power: true,
       bank: false,
       soundName: "",
+      soundLevel: 66,
       togglePower: () => {
         this.setState(({ power }) => ({
           power: power === true ? false : true
@@ -24,6 +25,9 @@ class App extends Component {
       },
       updateSoundName: (soundName) => {
         this.setState({ soundName });
+      },
+      updateSoundLevel: (soundLevel) => {
+        this.setState({ soundLevel });
       }
     }
   }

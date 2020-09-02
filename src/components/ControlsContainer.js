@@ -10,7 +10,10 @@ export default function ControlsContainer() {
           togglePower, 
           bank, 
           toggleBank,
-          soundName }) => (
+          soundName,
+          soundLevel,
+          updateSoundLevel,
+          updateSoundName }) => (
             <Col xs={{span: 12}} md={{span: 6}} className="controls-container">
               <Form>
                 <Form.Row>
@@ -19,7 +22,10 @@ export default function ControlsContainer() {
                     id="power-switch"
                     label="Power"
                     defaultChecked={power}
-                    onChange={() => togglePower()}
+                    onChange={() => {
+                      togglePower();
+                      updateSoundName('');
+                    }}
                   />
                 </Form.Row>
 
@@ -32,7 +38,17 @@ export default function ControlsContainer() {
                 <Form.Row>
                   <Form.Group controlId="formBasicRangeCustom">
                     <Form.Label>Volume</Form.Label>
-                    <Form.Control type="range" custom />
+                    <Form.Control 
+                      type="range" 
+                      custom 
+                      value = { soundLevel }
+                      onChange={(e) => { 
+                        updateSoundLevel(e.target.value);
+                        updateSoundName(`Volume: ${e.target.value}`);
+                        setTimeout(() => { updateSoundName(''); }, 1000);
+                      }}
+                      disabled={power === false ? true : false}
+                    />
                   </Form.Group>
                 </Form.Row>
 
@@ -42,7 +58,8 @@ export default function ControlsContainer() {
                     id="bank-switch"
                     label="Bank"
                     defaultChecked={bank}
-                    onChange={() => toggleBank()}
+                    onChange={() => toggleBank() }
+                    disabled={power === false ? true : false}
                   />
                 </Form.Row>
               </Form>
