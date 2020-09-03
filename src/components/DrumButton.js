@@ -57,7 +57,8 @@ export default function DrumButton(props) {
       </Button>
 
       <audio 
-        className="audio-element"
+        id={ props.letter }
+        className="clip"
         src={ props.url } 
         ref={ audioRef }
       />

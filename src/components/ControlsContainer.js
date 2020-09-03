@@ -32,7 +32,7 @@ export default function ControlsContainer() {
 
   return (
     <Col xs={{span: 12}} md={{span: 6}} className="controls-container">
-      <Form>
+      <Form id="controls-form">
         <Form.Row>
           <Form.Check 
             type="switch"
