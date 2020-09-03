@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Col, Form } from 'react-bootstrap';
-import DrumMachineContext from '../DrumMachineContext';
+import {DrumMachineContext} from '../Store';
+
 
 export default function ControlsContainer() {
   const { 
@@ -14,6 +15,20 @@ export default function ControlsContainer() {
     updateSoundName 
   } = useContext(DrumMachineContext);
 
+  const handlePowerSwitchOnChange = () => {
+    togglePowerSwitch(!powerSwitch);
+    updateSoundName('');
+  }
+
+  const handleVolumeOnChange = (e) => {
+    updateSoundLevel(e.target.value);
+    updateSoundName(`Volume: ${e.target.value}`);
+    setTimeout(() => { updateSoundName(''); }, 1000);
+  }
+
+  const handleBankSwitchOnChange = () => {
+    toggleBankSwitch(!bankSwitch);
+  }
 
   return (
     <Col xs={{span: 12}} md={{span: 6}} className="controls-container">
@@ -24,10 +39,7 @@ export default function ControlsContainer() {
             id="power-switch"
             label="Power"
             defaultChecked={powerSwitch}
-            onChange={() => {
-              togglePowerSwitch();
-              updateSoundName('');
-            }}
+            onChange={handlePowerSwitchOnChange}
           />
         </Form.Row>
 
@@ -43,12 +55,8 @@ export default function ControlsContainer() {
             <Form.Control 
               type="range" 
               custom 
-              value = { soundLevel }
-              onChange={(e) => { 
-                updateSoundLevel(e.target.value);
-                updateSoundName(`Volume: ${e.target.value}`);
-                setTimeout(() => { updateSoundName(''); }, 1000);
-              }}
+              value={soundLevel}
+              onChange={handleVolumeOnChange}
               disabled={powerSwitch === false ? true : false}
             />
           </Form.Group>
@@ -60,7 +68,7 @@ export default function ControlsContainer() {
             id="bank-switch"
             label="Bank"
             defaultChecked={bankSwitch}
-            onChange={() => toggleBankSwitch() }
+            onChange={handleBankSwitchOnChange}
             disabled={powerSwitch === false ? true : false}
           />
         </Form.Row>

@@ -1,55 +1,26 @@
-import React, { Component } from 'react';
+import React, { useContext } from 'react';
 import { Container, Row } from 'react-bootstrap';
 import PadBank from './components/PadBank';
 import ControlsContainer from './components/ControlsContainer';
-import DrumMachineContext from './DrumMachineContext';
+import {DrumMachineContext} from './Store';
 import './App.css';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      powerSwitch: true,
-      bankSwitch: false,
-      soundName: "",
-      soundLevel: 66,
-      togglePowerSwitch: () => {
-        this.setState(({ powerSwitch }) => ({
-          powerSwitch: powerSwitch === true ? false : true
-        }));
-      },
-      toggleBankSwitch: () => {
-        this.setState(({ bankSwitch }) => ({
-          bankSwitch: bankSwitch === true ? false : true
-        }));
-      },
-      updateSoundName: (soundName) => {
-        this.setState({ soundName });
-      },
-      updateSoundLevel: (soundLevel) => {
-        this.setState({ soundLevel });
-      }
-    }
-  }
+export default function App() {
+  const {powerSwitch, bankSwitch} = useContext(DrumMachineContext);
 
-  render() {
-    return (
-      <DrumMachineContext.Provider
-        value = {this.state}   
+  return (
+      <Container 
+        id="drum-machine"
+        className="p-3"
       >
-        <Container 
-          id="drum-machine"
-          className="p-3"
-        >
-          <h1 className="text-center">Drum Machine</h1>
-          <Row id="display">
-            <PadBank />
-            <ControlsContainer />
-          </Row>
-        </Container>
-      </DrumMachineContext.Provider>
-    );
-  }
-}
+        <h1 className="text-center">Drum Machine</h1>
+        <h2>powerSwitch: {powerSwitch ? "true" : "false" }</h2>
+        <h2>bankSwitch: {bankSwitch ? "true" : "false" }</h2>
+        <Row id="display">
+          <PadBank />
+          <ControlsContainer />
+        </Row>
+      </Container>
+  );
 
-export default App;
+}

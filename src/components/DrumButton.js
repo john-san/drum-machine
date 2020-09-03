@@ -1,6 +1,6 @@
 import React, { useRef, useContext } from 'react';
 import { Button } from 'react-bootstrap';
-import DrumMachineContext from '../DrumMachineContext';
+import {DrumMachineContext} from '../Store';
 
 export default function DrumButton(props) {
   const { 

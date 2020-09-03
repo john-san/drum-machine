@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import App from './App';
+import Store from './Store';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Store>
     <App />
-  </React.StrictMode>,
+  </Store>,
   document.getElementById('root')
 );
 

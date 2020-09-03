@@ -1,13 +1,12 @@
 import React, { useContext } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import DrumButton from './DrumButton';
-import DrumMachineContext from '../DrumMachineContext';
+import {DrumMachineContext} from '../Store';
 import { bankOne, bankTwo } from '../bankData';
 
 export default function PadBank() {
   const { bankSwitch } = useContext(DrumMachineContext)
-  // render correct bank items depending on bank state
-  let bank = bankSwitch ? bankTwo : bankOne;
+  let bank = bankSwitch ? bankTwo : bankOne; // render correct bank items depending on bank state
 
   return (
     <Col xs={{span: 12}} md={{span: 6}} className="pad-bank">
