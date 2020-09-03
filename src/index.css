@@ -50,11 +50,25 @@ body {
   
 }
 
+.row {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+
+@media(min-width: 768px) {
+  .row {
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+}
+
 @media(min-width: 1024px) {
   #drum-machine {
     width: 60%;
   }
 
+  
 }
 
 @media(min-width: 1400px) {

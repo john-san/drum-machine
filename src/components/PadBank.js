@@ -4,12 +4,9 @@ import DrumButton from './DrumButton';
 import { DrumMachineContext } from '../Store';
 import { bankOne, bankTwo } from '../bankData';
 
-
 export default function PadBank() {
   const { bankSwitch } = useContext(DrumMachineContext)
   let bank = bankSwitch ? bankTwo : bankOne; // render correct bank items depending on bank state
-
-  
 
   return (
     <Col xs={{span: 12}} md={{span: 6}} className="pad-bank">
