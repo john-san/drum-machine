@@ -9,18 +9,18 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      power: true,
-      bank: false,
+      powerSwitch: true,
+      bankSwitch: false,
       soundName: "",
       soundLevel: 66,
-      togglePower: () => {
-        this.setState(({ power }) => ({
-          power: power === true ? false : true
+      togglePowerSwitch: () => {
+        this.setState(({ powerSwitch }) => ({
+          powerSwitch: powerSwitch === true ? false : true
         }));
       },
-      toggleBank: () => {
-        this.setState(({ bank }) => ({
-          bank: bank === true ? false : true
+      toggleBankSwitch: () => {
+        this.setState(({ bankSwitch }) => ({
+          bankSwitch: bankSwitch === true ? false : true
         }));
       },
       updateSoundName: (soundName) => {
