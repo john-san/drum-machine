@@ -37,7 +37,7 @@ const bankOne = [
   {
     letter: "X",
     sound: "Kick",
-    url: "https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3"
+    url: "https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3"
   },
   {
     letter: "C",
