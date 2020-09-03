@@ -1,6 +1,4 @@
-const bankOne = {
-  name: "bankOne",
-  bank: [
+const bankOne = [
   {
     letter: "Q",
     sound: "Heater-1",
@@ -46,12 +44,9 @@ const bankOne = {
     sound: "Closed-HH",
     url: "https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3"
   }
-]
-};
+];
 
-const bankTwo = {
-  name: "bankOne",
-  bank: [
+const bankTwo = [
   {
     letter: "Q",
     sound: "Chord-1",
@@ -97,7 +92,6 @@ const bankTwo = {
     sound: "Snare",
     url: "https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3"
   }
-  ]
-};
+];
 
 export { bankOne, bankTwo };

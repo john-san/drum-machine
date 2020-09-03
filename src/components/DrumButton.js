@@ -1,10 +1,10 @@
 import React, { useRef, useContext } from 'react';
 import { Button } from 'react-bootstrap';
-import {DrumMachineContext} from '../Store';
+import { DrumMachineContext } from '../Store';
 
 export default function DrumButton(props) {
   const { 
-    powerSwitch, 
+    powerSwitch,
     updateSoundName, 
     soundLevel 
   } = useContext(DrumMachineContext);
@@ -12,12 +12,13 @@ export default function DrumButton(props) {
 
   const handleClick = () => {
     if (powerSwitch) { // only run if powerSwitch is on
-      console.log(audioRef.current.currentSrc);
       audioRef.current.volume = soundLevel / 100; // volume = percentage of 100
       audioRef.current.play();
       updateSoundName(props.sound);
     }
   }
+  
+  
 
   return (
     <>
@@ -32,10 +33,10 @@ export default function DrumButton(props) {
 
       <audio 
         className="audio-element"
-        ref={audioRef}
-      >
-        <source src={ props.url }></source>
-      </audio>
+        src={ props.url } 
+        ref={ audioRef }
+      />
+      
     </>
   )
 }

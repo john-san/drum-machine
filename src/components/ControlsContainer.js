@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Col, Form } from 'react-bootstrap';
-import {DrumMachineContext} from '../Store';
+import { DrumMachineContext } from '../Store';
 
 
 export default function ControlsContainer() {
